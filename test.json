@@ -1,0 +1,38 @@
+{
+    "arrangementer" : [
+        {      
+            "id": 1,
+            "tekst": "Dette er et møte 1",
+            "arrangoer": "Høvåg kirke",
+            "dato": "2018-06-12T01:00:00Z",
+            "taler": "Ola Normann"
+        },
+        {      
+            "id": 2,
+            "tekst": "Dette er et møte 2",
+            "arrangoer": "Salem",
+            "dato": "2018-06-13T01:00:00Z",
+            "taler": "Ola Normann"
+        },  {      
+            "id": 3,
+            "tekst": "Dette er et møte 3",
+            "arrangoer": "Frikstad bedehus",
+            "dato": "2018-06-16T01:00:00Z",
+            "taler": "Ola Normann"
+        },  {      
+            "id": 4,
+            "tekst": "Dette er et møte 4",
+            "arrangoer": "Høvåg kirke",
+            "dato": "2018-06-16T01:00:00Z",
+            "taler": "Ola Normann"
+        },  {      
+            "id": 5,
+            "tekst": "Dette er et møte 5",
+            "arrangoer": "Høvåg kirke",
+            "dato": "2018-06-22T01:00:00Z",
+            "taler": "Ola Normann"
+        }
+    ]
+
+
+}
