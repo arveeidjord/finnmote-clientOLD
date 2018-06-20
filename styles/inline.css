@@ -46,7 +46,8 @@
     width: 100%;
     height: 56px;
     color: #FFF;
-    background: rgb(40, 106, 133);
+    /* background: rgb(40, 106, 133);   */
+    background: rgb(20, 68, 87);
     position: fixed;
     font-size: 20px;
     box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 2px 9px 1px rgba(0, 0, 0, 0.12), 0 4px 2px -2px rgba(0, 0, 0, 0.2);
@@ -105,9 +106,10 @@
 
     display: -webkit-box;
     display: -webkit-flex;
-    display: -ms-flexbox;
+    display: -ms-flexbox; 
     display: flex; 
-    justify-content: space-between;}
+    justify-content: space-between;
+}
 
 
 .card {
@@ -135,11 +137,11 @@
         display: flex; 
         justify-content: space-between;}
 
-.arrangementTekst {
+.midFont {
     font-size: 1.5em;
 }
 
-.arrangementKl {
+.storFont {
     font-size: 2em;
 }
 
@@ -158,3 +160,92 @@
 
 .header #butAdd {
     background: url(/images/ic_add_white_24px.svg) center center no-repeat; }
+
+.arrangementliste {
+    margin: auto;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: calc(100% - 10px);
+}
+
+.arrangementliste td, .arrangementliste th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.arrangementliste tr:nth-child(even){background-color: #f2f2f2;}
+
+.arrangementliste tr:hover {background-color: #ddd;}
+
+.arrangementliste th {
+    /* padding-top: 12px;
+    padding-bottom: 12px; */
+    text-align: left;
+    background-color: rgb(70, 134, 161);
+    color: white;
+}
+
+
+
+/* DIALOG */
+.dialog-container {
+    background: rgba(0, 0, 0, 0.57);
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    will-change: opacity;
+    -webkit-transition: opacity 0.333s cubic-bezier(0, 0, 0.21, 1);
+    transition: opacity 0.333s cubic-bezier(0, 0, 0.21, 1); }
+  
+  .dialog-container--visible {
+    opacity: 1;
+    pointer-events: auto; }
+  
+  .dialog {
+    background: #FFF;
+    border-radius: 2px;
+    box-shadow: 0 0 14px rgba(0, 0, 0, 0.24), 0 14px 28px rgba(0, 0, 0, 0.48);
+    min-width: 280px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%) translateY(30px);
+            transform: translate(-50%, -50%) translateY(30px);
+    -webkit-transition: -webkit-transform 0.333s cubic-bezier(0, 0, 0.21, 1) 0.05s;
+    transition: -webkit-transform 0.333s cubic-bezier(0, 0, 0.21, 1) 0.05s;
+    transition: transform 0.333s cubic-bezier(0, 0, 0.21, 1) 0.05s;
+    transition: transform 0.333s cubic-bezier(0, 0, 0.21, 1) 0.05s, -webkit-transform 0.333s cubic-bezier(0, 0, 0.21, 1) 0.05s; }
+  
+  .dialog > div {
+    padding-left: 24px;
+    padding-right: 24px; }
+  
+  .dialog-title {
+    padding-top: 20px;
+    font-size: 1.25em; }
+  
+  .dialog-body {
+    padding-top: 20px;
+    padding-bottom: 24px;}
+.dialog-body select {
+      /* width: 100%; */
+      font-size: 1em;   
+    }
+
+    .dialog-body input {
+        /* width: 100%; */
+        font-size: 1em;   
+      }
+      .dialog-body label {
+        /* width: 100%; */
+        font-size: 1em;   
+      }
+  
+  .dialog-buttons {
+    padding: 8px !important;
+    float: right; }
+

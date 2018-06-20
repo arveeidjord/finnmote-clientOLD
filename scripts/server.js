@@ -5,11 +5,24 @@
 
     };
 
-    server.getArrangementer = function(filter){
+    server.getArrangementerAlle = function(filter){
         
-        var url = 'test.json';
+        var url = 'testAlle.json';
         return makeRequest('GET', url);
     }
+
+    server.getArrangementer = function(filter){
+        
+      var url = 'test.json';
+      return makeRequest('GET', url);
+  }
+
+  server.insertArrangement = function(obj){
+    obj.key = 55;
+    return obj;
+    // var url = 'test.json';
+    // return makeRequest('GET', url);
+}
 
     var makeRequest = function (method, url) {
         return new Promise(function (resolve, reject) {

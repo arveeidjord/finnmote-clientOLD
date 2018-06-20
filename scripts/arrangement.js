@@ -110,12 +110,12 @@
         window.app = window.app || {};
         window.app.arrangement = arrangement;
         
-        window.app.server.getArrangementer()
+        window.app.server.getArrangementerAlle()
             .then(function(data) {
                 arrangement.loadData(data.arrangementer);
             })
             .catch(function(err){
-                allert("Det oppstod en feil: " + err);
+                alert("Det oppstod en feil: " + err);
             });
 
   })(window);
