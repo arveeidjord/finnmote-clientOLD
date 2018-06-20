@@ -111,7 +111,6 @@
     justify-content: space-between;
 }
 
-
 .card {
     padding: 16px;
     position: relative;
@@ -161,6 +160,9 @@
 .header #butAdd {
     background: url(/images/ic_add_white_24px.svg) center center no-repeat; }
 
+    .header #butMeny {
+        background: url(/images/menu.svg) center center no-repeat; }
+    
 .arrangementliste {
     margin: auto;
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;

@@ -15,6 +15,8 @@
       container: document.querySelector('.container'),
       arrangoerContainer: document.querySelector('.arrangoerer'),
       nyDialog: document.querySelector('.dialog-container'),
+      meny: document.querySelector('#meny'),
+
       ukedager:  ['Søndag', 'Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lørdag'],
       picker : new Pikaday({ 
           field: document.getElementById('dialogTidspunkt'),
@@ -52,6 +54,16 @@
         arrangement.picker.setDate(new Date());
 
         arrangement.toggleAddDialog(true);
+      });
+
+      document.getElementById('butMeny').addEventListener('click', function() {
+        var hidden = arrangement.meny.offsetParent === null
+        
+        if (hidden) {
+            arrangement.meny.removeAttribute('hidden');
+        } else {
+            arrangement.meny.setAttribute('hidden', '');
+        }
       });
 
       document.getElementById('butAddCity').addEventListener('click', function() {
@@ -151,6 +163,12 @@
             arrangement.isLoading = false;
         }
       };
+
+
+      if (window.screen.width < 1024) {
+        arrangement.meny.setAttribute('hidden', '');
+      }
+
           // Export to window
         window.app = window.app || {};
         window.app.arrangement = arrangement;
