@@ -128,6 +128,13 @@
         }
     }
 
+    arrangement.visNyDialogDialog = function(obj) {
+
+        
+
+        arrangement.nyDialog.classList.add('dialog-container--visible');
+    };
+
     arrangement.toggleAddDialog = function(visible) {
         if (visible) {
             arrangement.nyDialog.classList.add('dialog-container--visible');
