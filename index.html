@@ -24,7 +24,7 @@
             <h3>Arrangører</h3>
             <div class="arrangoerer">
                 <div class="arrangoerTemplate" hidden>
-                    <input type="checkbox">
+                    <input class="arrangoerChk" type="checkbox">
                     <label class="arrangoerNavn"></label>
                 </div>
 
@@ -32,25 +32,33 @@
         </div>
     
         <main class="main">
-            <div class="card arrangementTemplate" hidden>
-                <div class="arrangementKey" hidden></div>
-                <div class="arrangementDato" hidden></div>
-                <div class="arrangementHeader"> 
-                    <div >
-                        <a href="arrangoer.html" class="arrangementArrangoer"></a>
-                        <div class="arrangementTekst midFont"></div>
-                        <div class="arrangementTaler"></div>
+
+            <div class="templates">
+                <div class="card arrangementTemplate" hidden>
+                    <div class="arrangementKey" hidden></div>
+                    <div class="arrangementDato" hidden></div>
+                    <div class="arrangementHeader"> 
+                        <div >
+                            <a href="arrangoer.html" class="arrangementArrangoer"></a>
+                            <div class="arrangementTekst midFont"></div>
+                            <div class="arrangementTaler"></div>
+                        </div>
+                        <div class="arrangementKl storFont"></div>
                     </div>
-                    <div class="arrangementKl storFont"></div>
+                    
+        
+                    
                 </div>
-                
-    
-                
+        
+                <div class="dato arrangementDatoTemplate" hidden>
+                    <h3 class="arrangementDato"></h3>
+                </div>
+
             </div>
-    
-            <div class="dato arrangementDatoTemplate" hidden>
-                <h3 class="arrangementDato"></h3>
+            <div class="mainContainer">
+
             </div>
+          
         </main>
     </div>
    
@@ -61,7 +69,11 @@
         </svg>
     </div>
 
+    <script>
     
+    // var s = Date.parse("2018-06-25T00:00:00+02:00");
+    // var k = new Date(s);
+    </script>
 
     <script src="scripts/server.js"></script>
     <script src="scripts/arrangement.js"></script>

@@ -13,20 +13,20 @@
 </head>
 <body>
     <header class="header">
-        <h1 class="header__title">Høvåg Kirke</h1>
+        <h1 class="header__title"></h1>
         <!-- <button id="butRefresh" class="headerButton" aria-label="Refresh"></button> -->
-        <button id="butAdd" class="headerButton" aria-label="Add"></button>
+        <!-- <button id="butAdd" class="headerButton" aria-label="Add"></button> -->
     </header>
 
     <div class="top">
             <div>
-                <a href="arrangoer.html">Hjem</a>
+                <a class="menyHjem" href="arrangoer.html">Hjem</a>
                 <br/>
-                <a href="arrangementliste.html">Arrangementliste</a>
+                <a class="menyArrangementliste" href="arrangementliste.html">Arrangementliste</a>
             </div>
         
             <main class="main">
-                <div class="card arrangementTemplate" hidden>
+                <!-- <div class="card arrangementTemplate" hidden>
                     <div class="arrangementKey" hidden></div>
                     <div class="arrangementDato" hidden></div>
                     <div class="arrangementHeader"> 
@@ -37,8 +37,8 @@
                         </div>
                         <div class="arrangementKl"></div>
                     </div>
-                </div>
-            </main>
+                </div> -->
+            </main> 
         </div>
 
     <div class="loader">
@@ -47,6 +47,7 @@
         </svg>
     </div>
 
+    <script src="scripts/server.js"></script>
     <script src="scripts/arrangoer.js" async></script>
 </body>
 </html>

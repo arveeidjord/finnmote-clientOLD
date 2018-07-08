@@ -16,6 +16,9 @@
       arrangoerContainer: document.querySelector('.arrangoerer'),
       nyDialog: document.querySelector('.dialog-container'),
       meny: document.querySelector('#meny'),
+      tittelElement: document.querySelector('.header__title'),
+      menyArrangementliste: document.querySelector('.menyArrangementliste'),
+      menyHjem: document.querySelector('.menyHjem'),
 
       ukedager:  ['Søndag', 'Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lørdag'],
       picker : new Pikaday({ 
@@ -67,20 +70,10 @@
       });
 
       document.getElementById('butAddCity').addEventListener('click', function() {
-        // Add the newly selected city
-        // var select = document.getElementById('selectCityToAdd');
-        // var selected = select.options[select.selectedIndex];
-        // var key = selected.value;
-        // var label = selected.textContent;
-        // if (!app.selectedCities) {
-        //   app.selectedCities = [];
-        // }
-        // app.getForecast(key, label);
-        // app.selectedCities.push({key: key, label: label});
-        // app.saveSelectedCities();
+
 
         var tekst = document.getElementById('dialogTekst').value;
-        var taler = document.getElementById('dialogTaler').value;
+        // var taler = document.getElementById('dialogTaler').value;
         var tidspunkt = arrangement.picker.getDate(); //document.getElementById('dialogTidspunkt').value;
 
         var selectTime = document.getElementById('dialogTime');
@@ -103,16 +96,20 @@
         tidspunkt.setHours(selectedTime);
         tidspunkt.setMinutes(selectedMin);
 
-        var res = window.app.server.insertArrangement(
+        window.app.server.insertArrangement(
             { 
-            tekst : tekst, 
-            taler : taler, 
-            dato: tidspunkt, 
+            beskrivelse : tekst, 
+            tidspunkt: tidspunkt, 
+            arrangoerId : 1
             //2012.12.24 20:30
         }
-        );
+        ).then(function(data) {
+            arrangement.updateForecastCard(data);
 
-        arrangement.updateForecastCard(res);
+        }).catch(function (err) {
+            alert("Det oppstod en feil: " + err);
+        });
+
 
         arrangement.toggleAddDialog(false);
       });
@@ -151,11 +148,15 @@
           arrangement.visibleArrangementer[data.id] = card;
         }
     
-        card.querySelector('.arrangementTekst').textContent = data.tekst;
-        card.querySelector('.arrangementDato').textContent = new Date(data.dato).toLocaleDateString();
-        card.querySelector('.arrangementKl').textContent = new Date(data.dato).toLocaleTimeString(navigator.language, {hour: '2-digit', minute:'2-digit'});
-        card.querySelector('.arrangementTaler').textContent = data.taler;
+        card.querySelector('.arrangementTekst').textContent = data.beskrivelse;
+        card.querySelector('.arrangementDato').textContent = new Date(data.tidspunkt).toLocaleDateString();
+        card.querySelector('.arrangementKl').textContent = new Date(data.tidspunkt).toLocaleTimeString(navigator.language, {hour: '2-digit', minute:'2-digit'});
+        // card.querySelector('.arrangementTaler').textContent = data.taler;
         // card.querySelector('.arrangementArrangoer').textContent = data.arrangoer;
+
+        card.addEventListener('click', function() {
+            arrangement.toggleAddDialog(true);
+        });
 
         if (arrangement.isLoading) {
             arrangement.spinner.setAttribute('hidden', true);
@@ -163,6 +164,21 @@
             arrangement.isLoading = false;
         }
       };
+
+      app.init = function(){
+
+        arrangement.menyArrangementliste.href = "arrangementliste.html?arr=" + window.app.server.qs('arr');
+        arrangement.menyHjem.href = "arrangoer.html?arr=" + window.app.server.qs('arr');
+        
+        window.app.server.loadSide(window.app.server.qs('arr'))
+            .then(function(data) {
+                arrangement.tittelElement.textContent = data.valgtArrangoer.navn;
+            })
+            .catch(function(err){
+                alert("Det oppstod en feil: " + JSON.stringify(err));
+            });
+        
+    }
 
 
       if (window.screen.width < 1024) {
@@ -173,13 +189,16 @@
         window.app = window.app || {};
         window.app.arrangement = arrangement;
         
-        window.app.server.getArrangementer()
+        window.app.server.getArrangementer(window.app.server.qs('arr'))
             .then(function(data) {
-                arrangement.loadData(data.arrangementer);
+                arrangement.loadData(data);
             })
             .catch(function(err){
                 alert("Det oppstod en feil: " + err);
             });
+
+    app.init();
+
 
   })(window);
   

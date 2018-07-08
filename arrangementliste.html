@@ -18,16 +18,16 @@
 <body>
     <header class="header">
         <button id="butMeny" class="headerButton" aria-label="Add"></button>
-        <h1 class="header__title">Høvåg menighet</h1>
+        <h1 class="header__title"></h1>
         <!-- <button id="butRefresh" class="headerButton" aria-label="Refresh"></button> -->
         <button id="butAdd" class="headerButton" aria-label="Add"></button>
     </header>
 
     <div class="top">
         <div id="meny">
-            <a href="arrangoer.html">Hjem</a>
-            <br/>
-            <a href="arrangementliste.html">Arrangementliste</a>
+                <a class="menyHjem" href="arrangoer.html">Hjem</a>
+                <br/>
+                <a class="menyArrangementliste" href="arrangementliste.html">Arrangementliste</a>
             <!-- <br/>
             <a href="historiskearrangementer.html">Historiske arrangementer</a> -->
         </div>
@@ -37,33 +37,21 @@
             <table class="arrangementliste container">
                     <tr>
                       <th>Dato</th>
-                      <th>Kl</th> 
-                      <th>Tekst</th>
-                      <th>Taler</th>
+                      <th>Kl</th>
+                      <th>Beskrivelse</th>
+                      <!-- <th>Taler</th> -->
                       <th hidden>Key</th>
                     </tr>
                     <tr class="card arrangementTemplate" hidden>
-                      <td class="arrangementDato">Smith</td> 
-                      <td class="arrangementKl">Smith</td> 
-                      <td class="arrangementTekst">Jill</td>
-                      <td class="arrangementTaler">50</td>
-                      <td class="arrangementKey" hidden>Smith</td> 
+                      <td class="arrangementDato" style="width: 90px"></td> 
+                      <td class="arrangementKl" style="width: 60px"></td> 
+                      <td class="arrangementTekst"></td>
+                      <!-- <td class="arrangementTaler">50</td> -->
+                      <td class="arrangementKey" hidden></td> 
                       
                     </tr>
                   </table>
 
-            <!-- <div class="card arrangementTemplate" hidden>
-                    <div class="arrangementKey" hidden></div>
-                    <div class="arrangementDato" hidden></div>
-                    <div class="arrangementHeader"> 
-                        <div >
-                            <a href="arrangoer.html" class="arrangementArrangoer"></a>
-                            <div class="arrangementTekst"></div>
-                            <div class="arrangementTaler"></div>
-                        </div>
-                        <div class="arrangementKl"></div>
-                    </div>
-                </div> -->
         </main>
     </div>
    
@@ -108,22 +96,9 @@
                         </select>
                 </div>
                 <div>
-                  <label>Tekst</label>
+                  <label>Beskrivelse</label>
                   <input id="dialogTekst" type="text">
                 </div>
-                <div>
-                    <label>Taler</label>
-                    <input id="dialogTaler" type="text">
-                </div>
-                <!-- <select id="selectCityToAdd">
-                  <option value="2357536">Austin, TX</option>
-                  <option value="2367105">Boston, MA</option>
-                  <option value="2379574">Chicago, IL</option>
-                  <option value="2459115">New York, NY</option>
-                  <option value="2475687">Portland, OR</option>
-                  <option value="2487956">San Francisco, CA</option>
-                  <option value="2490383">Seattle, WA</option>
-                </select> -->
               </div>
               <div class="dialog-buttons">
                 <button id="butAddCity" class="button">Legg til</button>
